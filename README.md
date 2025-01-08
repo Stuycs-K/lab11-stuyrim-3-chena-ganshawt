@@ -18,5 +18,27 @@ Make a clear list of features that work/dont work
 
 ## Adventurer Subclasses
 
+### Paladin (from CodeWarrior)
+
+-Attack: Strike \- {name} stuck {opponent}!
+-Support (self) \- Heal
+-Support \- Heal (better)
+-Special \- Revive (note: make expensive)
+
+
+### Artificer
+
+-Attack: \- Hits you with a hammer
+-Support (self) \- Search for Scrap (increases special count) \[count decreases on consecutive uses]
+-Support: \- Attack Buff
+-Special \- Scrap Cannon (uses all scrap for big attack)
+
+### Necromancer
+
+-Attack \- 
+-Support (self)
+-Support
+-Special \- AOE (does more damage per enemy if less than three)
+
 replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
 
