@@ -20,25 +20,27 @@ Make a clear list of features that work/dont work
 
 ### Paladin (from CodeWarrior)
 
--Attack: Strike \- {name} stuck {opponent}!
--Support (self) \- Heal
--Support \- Heal (better)
--Special \- Revive (note: make expensive)
+- Attack: Strike - {name} stuck {opponent}! - mana increases
+- Support (self) \- Heal, costs mana.
+- Support \- Heal (more effective on teammates than yourself), costs mana. 
+- Special \- Revive (note: make expensive)
+- Special Resource: Mana
 
 
 ### Artificer
 
--Attack: \- Hits you with a hammer
--Support (self) \- Search for Scrap (increases special count) \[count decreases on consecutive uses]
--Support: \- Attack Buff
--Special \- Scrap Cannon (uses all scrap for big attack)
+- Attack: \- Hits you with a hammer, scrap is unchanged
+- Support (self) \- Search for Scrap (increases special count) \[count decreases on consecutive uses]
+- Support: \- Attack Buff but costs scrap.
+- Special \- Scrap Cannon (uses all scrap for big attack)
+- Special Resource: Scrap
 
 ### Necromancer
 
--Attack \- 
--Support (self)
--Support
--Special \- AOE (does more damage per enemy if less than three)
+- Attack \- 
+- Support (self)
+- Support
+- Special \- Skeletal Army: AOE (does more damage per enemy if less than three)
 
 replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
 
