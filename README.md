@@ -18,9 +18,9 @@ Make a clear list of features that work/dont work
 
 ## Adventurer Subclasses
 
-### Paladin (from CodeWarrior)
+### Paladin (from CodeWarrior) \[with slight changes]
 
-- Attack: Strike - {name} stuck {opponent}! - mana increases
+- Attack: Strike - {name} struck {opponent}! - mana increases
 - Support (self) \- Heal, costs mana.
 - Support \- Heal (more effective on teammates than yourself), costs mana. 
 - Special \- Revive (note: make expensive)
@@ -37,10 +37,11 @@ Make a clear list of features that work/dont work
 
 ### Necromancer
 
-- Attack \- 
-- Support (self)
-- Support
-- Special \- Skeletal Army: AOE (does more damage per enemy if less than three)
+- Attack \- Damage siphons amount of HP from the user, deals extra damage based on the amount
+- Support (self) \- HP turns to special
+- Support \- HP of person used on turns to special for them
+- Special \- Skeletal Army: AOE (splits attack damage by number of enemies)
+- Special Resource: Souls
 
 replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
 
