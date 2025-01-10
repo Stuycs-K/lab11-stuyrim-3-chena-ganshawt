@@ -49,6 +49,19 @@ public class Artificer extends Adventurer{
     }
   }
 
+  //Debug code for numberOfConsecutiveSearches
+  public int getNumberOfConsecutiveSearches(){
+    return numberOfConsecutiveSearches;
+  }
+
+  public void setNumberOfConsecutiveSearches(int n){
+    numberOfConsecutiveSearches = n;
+  }
+
+  public void resetSearches(){
+    numberOfConsecutiveSearches = 0;
+  }
+
   //Just a basic attack with a hammer.
   public String attack(Adventurer other){
     //Placeholder damage, may be increased and decreased
@@ -62,7 +75,17 @@ public class Artificer extends Adventurer{
 
   //Searches for special and increases the special counter.
   public String support(){
-    return null;
+    if(numberOfConsecutiveSearches > 3){
+      return "There seems to be no scrap around. Choose a different action.";
+    }
+    else{
+      int amountRestored = 3 - numberOfConsecutiveSearches;
+      super.restoreSpecial(3 - numberOfConsecutiveSearches);
+      numberOfConsecutiveSearches++;
+      String[] adjectives = {"small", "medium", "large"};
+      return this.getName() + " searched around the environment and found a " + adjectives[amountRestored - 1] + " amount of metal. Restored " + amountRestored + " scrap";
+    }
+
   }
 
   //Takes special and turns it into damage buffs for friendly units.
