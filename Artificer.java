@@ -58,7 +58,7 @@ public class Artificer extends Adventurer{
     numberOfConsecutiveSearches = n;
   }
 
-  public void resetSearches(){
+  private void resetSearches(){
     numberOfConsecutiveSearches = 0;
   }
 
@@ -68,6 +68,7 @@ public class Artificer extends Adventurer{
     int damage = (int)((Math.random() * 4) + 1);
 
     other.applyDamage(damage);
+    resetSearches();
     //Added adjectives to describe the swing.
     String[] possibleAdjectives = {"feebly", "weakly", "forcefully", "with all of his might"};
     return this.getName() + "swung his hammer " + possibleAdjectives[damage - 1] + " at " + other.getName() + "dealing " + damage + " damage, leaving " + other.getName() + " with only " + other.getHP() + "HP left";
@@ -90,6 +91,13 @@ public class Artificer extends Adventurer{
 
   //Takes special and turns it into damage buffs for friendly units.
   public String support(Adventurer other){
+    if(getSpecial() > 1){
+      resetSearches();
+      return this.getName() + " used his scrap to sharpen his weapons, giving " + other.getName() + " a PLACEHOLDER damage buff";
+    }
+    else{
+      return this.getName() + " seems not to have enough scrap to buff " + other.getName();
+    }
     //Working on adding compatability for changes in strength and damage buffs.
     return null;
   }
@@ -101,6 +109,7 @@ public class Artificer extends Adventurer{
       damage += (Math.random() * 3) + 1;
     }
     other.applyDamage(damage);
+    resetSearches();
     return this.getName() + "fired all of his scrap at " + other.getName() + "dealing " + damage + " damage, leaving " + other.getName() + " with only " + other.getHP() + "HP left";
   }
 
