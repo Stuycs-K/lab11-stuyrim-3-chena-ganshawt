@@ -51,6 +51,23 @@ public class Paladin extends Adventurer{
   public String specialAttack(Adventurer other){
 
     //This becomes a revive. Don't ask how.
+    if(mana == manaMax)
+    {
+    if(other.getHP() == 0)
+    {
+      other.setHP(10);
+      mana = 0;
+    }
+    else
+    {
+      support(other);
+    }
+    }
+    else
+    {
+      return "Insufficient mana. Nothing happened.";
+    }
+
   /*  if(getSpecial() >= 8){
       setSpecial(getSpecial()-8);
       int damage = (int)(Math.random()*5+Math.random()*5)+3;
