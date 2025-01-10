@@ -38,6 +38,7 @@ public class Paladin extends Adventurer{
   /*Deal 2-7 damage to opponent, restores 2 mana*/
   public String attack(Adventurer other){
     int damage = (int)(Math.random()*6)+2;
+    damage += atkBuff;
     other.applyDamage(damage);
     restoreSpecial(2);
     return this + " struck "+ other + " and dealt "+ damage +

@@ -2,6 +2,7 @@ import java.util.Random;
 public abstract class Adventurer{
   private String name;
   private int HP,maxHP;
+  private int atkBuff;
 
   //Abstract methods are meant to be implemented in child classes.
   /*
@@ -69,6 +70,7 @@ public abstract class Adventurer{
     this.name = name;
     this.HP = hp;
     this.maxHP = hp;
+    this.atkBuff = 0;
   }
 
   //toString method
@@ -99,5 +101,15 @@ public abstract class Adventurer{
 
   public void setName(String s){
     this.name = s;
+  }
+
+  public void getBuff(int buff)
+  {
+    return atkBuff;
+  }
+
+  public void setBuff(int buff)
+  {
+    this.atkBuff = buff;
   }
 }
