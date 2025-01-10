@@ -8,8 +8,8 @@ public class Artificer extends Adventurer{
   //Constructors:
   public Artificer(String name, int hp){
     super(name, hp);
-    special = 0;
-    specialMax = 10;
+    scrap = 0;
+    scrapMax = 10;
   }
 
   public Artificer(String name){
@@ -40,12 +40,12 @@ public class Artificer extends Adventurer{
   }
 
   public void setSpecial(int n){
-    if(int n > getSpecial){
-      specialMax = n;
-      special = n;
+    if(n > getSpecial()){
+      scrapMax = n;
+      scrap = n;
     }
     else{
-      special = n;
+      scrap = n;
     }
   }
 
@@ -56,7 +56,7 @@ public class Artificer extends Adventurer{
 
     other.applyDamage(damage);
     //Added adjectives to describe the swing.
-    String[] possibleAdjectives = {"feebly", "weakly", "forcefully", "with all of his might"}
+    String[] possibleAdjectives = {"feebly", "weakly", "forcefully", "with all of his might"};
     return this.getName() + "swung his hammer " + possibleAdjectives[damage - 1] + " at " + other.getName() + "dealing " + damage + " damage, leaving " + other.getName() + " with only " + other.getHP() + "HP left";
   }
 
