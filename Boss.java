@@ -1,6 +1,8 @@
 public class Boss extends Adventurer{
   //ALL PLACEHOLDER VALUES CHANGE IN THE FUTURE
 
+  //Probably a dragon.
+
   public Boss(){
     super();
   }
