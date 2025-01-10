@@ -1,23 +1,20 @@
-public class CodeWarrior extends Adventurer{
+public class Paladin extends Adventurer{
   int mana, manaMax;
 
   /*the other constructors ultimately call the constructor
   *with all parameters.*/
-  public CodeWarrior(String name, int hp){
+  public Paladin(String name, int hp){
     super(name,hp);
     manaMax = 12;
     mana = manaMax/2;
   }
 
-  public CodeWarrior(String name, int hp){
-    this(name,hp);
-  }
 
-  public CodeWarrior(String name){
+  public Paladin(String name){
     this(name,24);
   }
 
-  public CodeWarrior(){
+  public Paladin(){
     this("Bardon the Strong");
   }
 
