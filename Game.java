@@ -13,38 +13,40 @@ public class Game{
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
 
+    String borderChar = " ";
     System.out.print("\u001b[5;1f");
-    System.out.print("\u001b[31m");
+    System.out.print("\u001b[41m");
     for(int i = 1; i < 81; i++)
     {
-      System.out.print("e");
+      System.out.print(borderChar);
     }
     System.out.print("\u001b[25;1f");
     for(int i = 1; i < 81; i++)
     {
-      System.out.print("e");
+      System.out.print(borderChar);
     }
     //Vertical
 
     for(int i = 1; i < 5;i++)
     {
     System.out.print("\u001b[" + i + ";25f");
-    System.out.println("e");
+    System.out.println(borderChar);
     System.out.print("\u001b[" + i + ";55f");
-    System.out.println("e");
+    System.out.println(borderChar);
 
     }
 
-    for(int i = 1; i < 6;i++)
+    for(int i = 1; i < 7;i++)
     {
     System.out.print("\u001b[" + (i+24) + ";25f");
-    System.out.println("e");
+    System.out.println(borderChar);
     System.out.print("\u001b[" + (i+24) + ";55f");
-    System.out.println("e");
+    System.out.println(borderChar);
     }
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        System.out.print("\u001b[0m");
   }
 
   //Display a line of text starting at
