@@ -69,6 +69,27 @@ public class Game{
   *@param height the number of rows
   */
   public static void TextBox(int row, int col, int width, int height, String text){
+
+    String words = "";
+    System.out.println(text.length());
+    for(int i = 0; i < text.length();i++)
+    {
+      if((words + text.charAt(i)).length() > width)
+      {
+
+        row++;
+        words = text.charAt(i) + "";
+        drawText(words,row,col);
+      }
+      else{
+        words += text.charAt(i);
+        drawText(words,row,col);
+      }
+
+
+
+    }
+
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -98,10 +119,19 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
+      int row = startRow;
+      int col = 1;
+      for(int i = 0; i < party.size();i++)
+      {
+        drawText(party.get(i).getName(),row,col);
+        drawText("HP: " + party.get(i).getHP(),row+1,col);
+        drawText(party.get(i).getSpecialName + ": " + party.get(i).getSpecial(),row+2,col);
+        drawText("Atk Buff: " + party.get(i).getBuff(),row+3,col);
+        col+= 25;
 
-      /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      //YOUR CODE HERE
-      /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+      }
+
+
     }
 
 
