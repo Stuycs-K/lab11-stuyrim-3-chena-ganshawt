@@ -54,7 +54,7 @@ public class Game{
   //use this method in your other text drawing methods to make things simpler.
   public static void drawText(String s,int startRow, int startCol){
 
-        System.out.print("\u001b[" + startCol + ";" + startRow +"f");
+        System.out.print("\u001b[" + startRow + ";" + startCol +"f");
         System.out.print(s);
   }
 
