@@ -98,8 +98,6 @@ public class Artificer extends Adventurer{
     else{
       return this.getName() + " seems not to have enough scrap to buff " + other.getName();
     }
-    //Working on adding compatability for changes in strength and damage buffs.
-    return null;
   }
 
   //Deals more damage the more scrap(the special resource) you have, using all the special up in the process.

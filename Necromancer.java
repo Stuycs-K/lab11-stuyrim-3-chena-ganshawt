@@ -1,11 +1,11 @@
 public class Necromancer extends Adventurer{
-  private int mana;
-  private int manaMax;
+  private int souls;
+  private int soulsMax;
 
   public Necromancer(String name, int hp){
     super(name, hp);
-    mana = 4;
-    manaMax = 20;
+    souls = 1;
+    soulsMax = 6;
   }
 
   public Necromancer(String name){
@@ -29,16 +29,16 @@ public class Necromancer extends Adventurer{
   }
 
   public int getSpecialMax(){
-    return manaMax;
+    return soulsMax;
   }
 
   public void setSpecial(int n){
     if(n > getSpecialMax()){
-        manaMax = n;
-        mana = n;
+        soulsMax = n;
+        souls = n;
     }
     else{
-      mana = n;
+      souls = n;
     }
   }
 
@@ -58,7 +58,7 @@ public class Necromancer extends Adventurer{
   public String support(){
     this.applyDamage(2);
     this.restoreSpecial(2);
-    return this.getName() " had 2 hp turned into 2" + this.getSpecialName() + ". They now have " + this.getHP() + " health left";
+    return this.getName() + " had 2 hp turned into 2 " + this.getSpecialName() + ". They now have " + this.getHP() + " health left.";
   }
 
   public String specialAttack(Adventurer other){
