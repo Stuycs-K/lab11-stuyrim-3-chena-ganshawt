@@ -21,11 +21,11 @@ public class Necromancer extends Adventurer{
   }
 
   public String getSpecialName(){
-    return "mana";
+    return "souls";
   }
 
   public int getSpecial(){
-    return mana;
+    return souls;
   }
 
   public int getSpecialMax(){
@@ -43,19 +43,26 @@ public class Necromancer extends Adventurer{
   }
 
   public String attack(Adventurer other){
-    return null;
+    this.applyDamage(3);
+    int damage = (int)((Math.random() * 3) + 3);
+    other.applyDamage(damage);
+    return this.getName() + " sacrificed 3 health to deal " + damage + " damage to " + other.getName() + " leaving " + this.getName() + " with " + this.getHP() + " hp and " + other.getName() + " with " + other.getHP() + "hp.";
   }
 
   public String support(Adventurer other){
-    return null;
+    other.applyDamage(2);
+    other.restoreSpecial(2);
+    return other.getName() + " had 2 hp turned into 2 " + other.getSpecialName() + ". They now have " + other.getHP() + " health left.";
   }
 
   public String support(){
-    return null;
+    this.applyDamage(2);
+    this.restoreSpecial(2);
+    return this.getName() " had 2 hp turned into 2" + this.getSpecialName() + ". They now have " + this.getHP() + " health left";
   }
 
   public String specialAttack(Adventurer other){
-    return null;
+    return "This a group targeted attack, provide a group of adventures not just one.";
   }
 
 
