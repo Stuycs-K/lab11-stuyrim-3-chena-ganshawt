@@ -125,7 +125,7 @@ public class Game{
       {
         drawText(party.get(i).getName(),row,col);
         drawText("HP: " + party.get(i).getHP(),row+1,col);
-        drawText(party.get(i).getSpecialName + ": " + party.get(i).getSpecial(),row+2,col);
+        drawText(party.get(i).getSpecialName() + ": " + party.get(i).getSpecial(),row+2,col);
         drawText("Atk Buff: " + party.get(i).getBuff(),row+3,col);
         col+= 25;
 

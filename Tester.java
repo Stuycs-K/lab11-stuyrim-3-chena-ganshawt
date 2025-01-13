@@ -6,6 +6,7 @@ public class Tester
     System.out.println("\u001b[2J");
     Game.drawBackground();
     Game.drawText("this is test text", 1, 56);
+
     System.out.println();
     System.out.println(Game.createRandomAdventurer());
     System.out.println(Game.createRandomAdventurer());
@@ -13,13 +14,17 @@ public class Tester
 
     //Battle Testing:
     ArrayList<Adventurer> testers = new ArrayList<Adventurer>();
+
+
+
     Paladin paladinTester = new Paladin("Paladin Test");
     Necromancer necromancerTester = new Necromancer("Necromancer Test");
     Artificer artificerTester = new Artificer("Artificer Test");
     testers.add(paladinTester);
     testers.add(necromancerTester);
     testers.add(artificerTester);
-
+        Game.drawParty(testers,1);
+/*
     //Accessor methods for the classes
     for(int i = 0; i < testers.size(); i++){
       System.out.println(testers.get(i).getName());
@@ -42,5 +47,6 @@ public class Tester
     System.out.println("Special before: " + testers.get(1).getSpecial());
     System.out.println(testers.get(0).support(testers.get(1)));
     System.out.println("Special after: " + testers.get(1).getSpecial());
-  }
+*/
+}
 }
