@@ -103,7 +103,7 @@ public abstract class Adventurer{
     this.name = s;
   }
 
-  public int getBuff(int buff)
+  public int getBuff()
   {
     return atkBuff;
   }

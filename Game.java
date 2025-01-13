@@ -53,9 +53,9 @@ public class Game{
   //(columns and rows start at 1 (not zero) in the terminal)
   //use this method in your other text drawing methods to make things simpler.
   public static void drawText(String s,int startRow, int startCol){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+        System.out.print("\u001b[" + startCol + ";" + startRow +"f");
+        System.out.print(s);
   }
 
   /*Use this method to place text on the screen at a particular location.
@@ -80,7 +80,7 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
-      return new CodeWarrior("Bob"+(int)(Math.random()*100));
+      return new Paladin("Bob"+(int)(Math.random()*100));
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)

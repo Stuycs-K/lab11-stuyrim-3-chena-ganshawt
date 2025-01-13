@@ -38,7 +38,7 @@ public class Paladin extends Adventurer{
   /*Deal 2-7 damage to opponent, restores 2 mana*/
   public String attack(Adventurer other){
     int damage = (int)(Math.random()*6)+2;
-    damage += atkBuff;
+    damage += this.getBuff();
     other.applyDamage(damage);
     restoreSpecial(2);
     return this + " struck "+ other + " and dealt "+ damage +
@@ -79,16 +79,18 @@ public class Paladin extends Adventurer{
       return "Not enough mana to use the ultimate code. Instead "+attack(other);
     }
 */
+
+return "This is here because terminal says that something is wrong";
   }
   /*Restores 5 special to other*/
   public String support(Adventurer other){
-    return "Used a prayer on " + other +" and restores "
+    return "Used a prayer on " + other + " and restores "
     + other.restoreSpecial(5)+" "+other.getSpecialName();
   }
   /*Restores 6 special and 1 hp to self.*/
   public String support(){
     int hp = 1;
     setHP(getHP()+hp);
-    return this+" thinks about their noble caused and restores " + hp "HP";
+    return this+" thinks about their noble caused and restores " + hp + "HP";
   }
 }
