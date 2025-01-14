@@ -59,12 +59,12 @@ public class Boss extends Adventurer{
     damage += this.getBuff();
     other.applyDamage(damage);
     restoreSpecial(2);
-    return this + " slashed " + other.getName() + " with its claws for " damage + "damage.";
+    return this + " slashed " + other.getName() + " with its claws for " + damage + "damage.";
   }
 
   public String support(Adventurer other){
     other.setBuff(other.getBuff() - 3);
-    return this + " used its draconic power to lower " other.getName() + "'s attack buff by 3";
+    return this + " used its draconic power to lower " + other.getName() + "'s attack buff by 3";
   }
 
   public String support(){
@@ -72,7 +72,7 @@ public class Boss extends Adventurer{
     return this + " healed itself for 5 damage.";
   }
 
-  public String specialAttack(Adventurer other){
+  public String specialAttack(ArrayList<Adventurer> party, int index){
     // Will turn into AOE eventually. I'll get that figured out soon.
 
     return null;

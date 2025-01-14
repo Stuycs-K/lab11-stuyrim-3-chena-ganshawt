@@ -69,10 +69,11 @@ public class Paladin extends Adventurer{
     {
       other.setHP(10);
       mana = 0;
+      return this.getName() + " revived " + other.getName();
     }
     else
     {
-      support(other);
+      return support(other);
     }
     }
     else
