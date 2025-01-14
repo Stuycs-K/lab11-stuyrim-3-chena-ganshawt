@@ -5,25 +5,23 @@ public class Tester
   public static void main(String[] args) {
     System.out.println("\u001b[2J");
     Game.drawBackground();
-    Game.drawText("this is test text", 1, 56);
+    // Game.drawText("this is test text", 1, 56);
 
-    System.out.println();
-    System.out.println(Game.createRandomAdventurer());
-    System.out.println(Game.createRandomAdventurer());
-    System.out.println(Game.createRandomAdventurer());
+    // System.out.println();
+    // System.out.println(Game.createRandomAdventurer());
+    // System.out.println(Game.createRandomAdventurer());
+    // System.out.println(Game.createRandomAdventurer());
 
     //Battle Testing:
     ArrayList<Adventurer> testers = new ArrayList<Adventurer>();
-
-
-
     Paladin paladinTester = new Paladin("Paladin Test");
     Necromancer necromancerTester = new Necromancer("Necromancer Test");
     Artificer artificerTester = new Artificer("Artificer Test");
     testers.add(paladinTester);
     testers.add(necromancerTester);
     testers.add(artificerTester);
-        Game.drawParty(testers,1);
+    Game.drawParty(testers,1);
+    Game.quit();
 /*
     //Accessor methods for the classes
     for(int i = 0; i < testers.size(); i++){
