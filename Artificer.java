@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Artificer extends Adventurer{
   private int scrap;
   private int scrapMax;
@@ -101,7 +103,8 @@ public class Artificer extends Adventurer{
   }
 
   //Deals more damage the more scrap(the special resource) you have, using all the special up in the process.
-  public String specialAttack(Adventurer other){
+  public String specialAttack(ArrayList<Adventurer> targets, int index){
+    Adventurer other = targets.get(index);
     int damage = 0;
     for(int i = 0; i < scrap; i++){
       damage += (Math.random() * 3) + 1;

@@ -36,12 +36,12 @@ public class Game{
 
     }
 
-    for(int i = 1; i < 7;i++)
+    for(int i = 1; i < 6;i++)
     {
     System.out.print("\u001b[" + (i+24) + ";25f");
-    System.out.println(borderChar);
+    System.out.print(borderChar);
     System.out.print("\u001b[" + (i+24) + ";55f");
-    System.out.println(borderChar);
+    System.out.print(borderChar);
     }
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
@@ -160,7 +160,7 @@ public class Game{
   public static void drawScreen(ArrayList<Adventurer> party, ArrayList<Adventurer> enemies){
 
     drawBackground();
-
+    Game.drawParty(party,1);
     //draw player party
     Game.drawParty(party,1);
 
@@ -218,7 +218,7 @@ public class Game{
     //Draw the window border
 
     //You can add parameters to draw screen!
-    drawScreen();//initial state.
+    drawScreen(party,enemies);//initial state.
 
     //Main loop
 
@@ -304,7 +304,7 @@ public class Game{
       }
 
       //display the updated screen after input has been processed.
-      drawScreen();
+      drawScreen(party,enemies);
 
 
     }//end of main game loop

@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Paladin extends Adventurer{
   int mana, manaMax;
 
@@ -58,8 +60,8 @@ public class Paladin extends Adventurer{
   /*Deal 3-12 damage to opponent, only if mana is high enough.
   *Reduces mana by 8.
   */
-  public String specialAttack(Adventurer other){
-
+  public String specialAttack(ArrayList<Adventurer> targets, int index){
+    Adventurer other = targets.get(index);
     //This becomes a revive. Don't ask how.
     if(mana == manaMax)
     {
@@ -75,26 +77,16 @@ public class Paladin extends Adventurer{
     }
     else
     {
-      return "Insufficient mana. Nothing happened.";
+      return "Insufficient mana. Instead " + support(other);
     }
 
-  /*  if(getSpecial() >= 8){
-      setSpecial(getSpecial()-8);
-      int damage = (int)(Math.random()*5+Math.random()*5)+3;
-      other.applyDamage(damage);
-      return this + " used their "+preferredLanguage+
-      " skills to hack the matrix. "+
-      " This glitched out "+other+" dealing "+ damage +" points of damage.";
-    }else{
-      return "Not enough mana to use the ultimate code. Instead "+attack(other);
-    }
-*/
 
-return "This is here because terminal says that something is wrong";
+
+
   }
   /*Restores 5 special to other*/
   public String support(Adventurer other){
-    return "Used a prayer on " + other + " and restores "
+    return this.getName() + " used a prayer on " + other + " and restores "
     + other.restoreSpecial(5)+" "+other.getSpecialName();
   }
   /*Restores 6 special and 1 hp to self.*/
