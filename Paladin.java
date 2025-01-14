@@ -28,7 +28,17 @@ public class Paladin extends Adventurer{
   }
 
   public void setSpecial(int n){
-    mana = n;
+    if(n <= getSpecialMax() && n > -1)
+    {
+      mana = n;
+    }
+    else if(n > getSpecialMax())
+    {
+      mana = getSpecialMax();
+    }else if (n < 0)
+    {
+      mana = 0;
+    }
   }
 
   public int getSpecialMax(){
