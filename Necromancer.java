@@ -21,7 +21,7 @@ public class Necromancer extends Adventurer{
   }
 
   public String getSpecialName(){
-    return "souls";
+    return "Souls";
   }
 
   public int getSpecial(){

@@ -21,6 +21,14 @@ public class Tester
     testers.add(necromancerTester);
     testers.add(artificerTester);
     Game.drawParty(testers,1);
+    ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
+    Paladin paladinEnemy = new Paladin("Paladin Enemy");
+    Necromancer necromancerEnemy = new Necromancer("Necromancer Enemy");
+    Artificer artificerEnemy = new Artificer("Artificer Enemy");
+    enemies.add(paladinEnemy);
+    enemies.add(necromancerEnemy);
+    enemies.add(artificerEnemy);
+    Game.drawParty(enemies,26);
     Game.quit();
 /*
     //Accessor methods for the classes
