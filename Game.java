@@ -12,7 +12,7 @@ public class Game{
   //Display the borders of your screen that will not change.
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
-
+    System.out.println("\u001b[2J");
     String borderChar = " ";
     System.out.print("\u001b[5;1f");
     System.out.print("\u001b[41m");
@@ -243,7 +243,8 @@ public class Game{
 
     //display this prompt at the start of the game.
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-
+    System.out.println();
+    System.out.print(preprompt);
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
       input = userInput(in);
