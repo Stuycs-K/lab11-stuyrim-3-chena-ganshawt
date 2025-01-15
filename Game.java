@@ -267,6 +267,12 @@ public class Game{
     {
       for(int i = 0; i < party.size();i++)
       {
+        if(party.get(i).getHP() <= 0)
+        {
+          party.remove(i);
+          i--;
+        }
+        else{
         target = 0;
         String prompter = "Enter command for "+party.get(whichPlayer)+": attack # / support # / special # / quit ";
         drawText(prompter,30,1);
@@ -329,7 +335,7 @@ public class Game{
 
 
 
-      }
+      }}
 
 
 
@@ -339,10 +345,24 @@ public class Game{
 
     if((! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))))
     {
+      for(int i = 0; i < enemies.size();i++)
+      {
+        if(enemies.get(i).getHP() <= 0)
+        {
+          enemies.remove(i);
+          i--;
+        }
 
 
 
 
+      }
+
+
+      if(party.size() == 0 || enemies.size() == 0)
+      {
+        input = "quit";
+      }
     }
 
     drawScreen(party,enemies);
