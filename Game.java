@@ -259,84 +259,49 @@ public class Game{
     System.out.println();
     System.out.print(preprompt);
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
-      //Read user input
-      input = userInput(in);
 
-      //example debug statment
-      TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
+    if(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
+    {
+      for(int i = 0; i < party.size();i++)
+      {
 
-      //display event based on last turn's input
-      if(partyTurn){
+        if(input.startsWith("a"))
+        {
 
-        //Process user input for the last Adventurer:
-        if(input.startsWith("attack ") || input.startsWith("a ")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(input.startsWith("special ") || input.startsWith("sp ")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        else if(input.startsWith("sp"))
+        {
+
         }
-        else if(input.startsWith("su ") || input.startsWith("support ")){
-          //"support 0" or "su 0" or "su 2" etc.
-          //assume the value that follows su  is an integer.
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        else if(input.startsWith("su"))
+        {
+          
         }
-
-        //You should decide when you want to re-ask for user input
-        //If no errors:
-        whichPlayer++;
-
-
-        if(whichPlayer < party.size()){
-          //This is a player turn.
-          //Decide where to draw the following prompt:
-          String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-
-
+        else if((input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
+        {
+          // Put quit behavior here.
         }else{
-          //This is after the player's turn, and allows the user to see the enemy turn
-          //Decide where to draw the following prompt:
-          String prompt = "press enter to see monster's turn";
-
-          partyTurn = false;
-          whichOpponent = 0;
-        }
-        //done with one party member
-      }else{
-        //not the party turn!
+          //Print try again
+          i-= 1;}
 
 
-        //enemy attacks a randomly chosen person with a randomly chosen attack.z`
-        //Enemy action choices go here!
-        /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-        //YOUR CODE HERE
-        /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-
-        //Decide where to draw the following prompt:
-        String prompt = "press enter to see next turn";
-
-        whichOpponent++;
-
-      }//end of one enemy.
-
-      //modify this if statement.
-      if(!partyTurn && whichOpponent >= enemies.size()){
-        //THIS BLOCK IS TO END THE ENEMY TURN
-        //It only triggers after the last enemy goes.
-        whichPlayer = 0;
-        turn++;
-        partyTurn=true;
-        //display this prompt before player's turn
-        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
       }
 
-      //display the updated screen after input has been processed.
+
+
+
+    }
+
+
+    if((! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))))
+    {
+
+
+
+
+    }
+
       drawScreen(party,enemies);
 
 
