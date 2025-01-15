@@ -68,6 +68,7 @@ public class Necromancer extends Adventurer{
     int numtargets = party.size();
     while(index < party.size())
     {
+    party.get(index).applyDamage(damageTotal/numtargets);
     return this + " sent a skeleton towards " + party.get(index).getName() + " to deal " + damageTotal/numtargets + " damage." + "\n" + specialAttack(party,index+1);
     }
     return "";
