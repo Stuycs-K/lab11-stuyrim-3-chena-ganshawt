@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Necromancer extends Adventurer{
   private int souls;
   private int soulsMax;
@@ -61,8 +63,14 @@ public class Necromancer extends Adventurer{
     return this.getName() + " had 2 hp turned into 2 " + this.getSpecialName() + ". They now have " + this.getHP() + " health left.";
   }
 
-  public String specialAttack(Adventurer other){
-    return "This a group targeted attack, provide a group of adventures not just one.";
+  public String specialAttack(ArrayList<Adventurer> party, int index){
+    int damageTotal = 12;
+    int numtargets = party.size();
+    while(index < party.size())
+    {
+    return this + " sent a skeleton towards " + party.get(index).getName() + " to deal " + damageTotal/numtargets + " damage." + "\n" + specialAttack(party,index+1);
+    }
+    return "";
   }
 
 

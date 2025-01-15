@@ -74,8 +74,13 @@ public class Boss extends Adventurer{
 
   public String specialAttack(ArrayList<Adventurer> party, int index){
     // Will turn into AOE eventually. I'll get that figured out soon.
-
-    return null;
+    int damageTotal = 12;
+    int numtargets = party.size();
+    while(index < party.size())
+    {
+    return this + " threw a fireball at " + party.get(index).getName() + " for " + damageTotal/numtargets + " damage." + "\n" + specialAttack(party,index+1);
+    }
+    return "";
   }
 
 }

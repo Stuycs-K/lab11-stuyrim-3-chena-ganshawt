@@ -30,6 +30,10 @@ public class Tester
     enemies.add(necromancerEnemy);
     enemies.add(artificerEnemy);
     Game.drawParty(enemies,26);
+    Boss dragonTester = new Boss("Dragon Test");
+    dragonTester.setSpecial(300);
+    Game.drawText(dragonTester.specialAttack(testers,0),15,1);
+    Game.drawText(necromancerTester.specialAttack(enemies,0),10,1);
     Game.quit();
 /*
     //Accessor methods for the classes
