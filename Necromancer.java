@@ -47,7 +47,7 @@ public class Necromancer extends Adventurer{
   public String attack(Adventurer other){
     this.applyDamage(3);
     int damage = (int)((Math.random() * 3) + 3);
-    other.applyDamage(damage);
+    other.applyDamage(damage + getBuff());
     restoreSpecial(1);
     return this.getName() + " sacrificed 3 health to deal " + damage + " damage to " + other.getName() + " leaving " + this.getName() + " with " + this.getHP() + " hp and " + other.getName() + " with " + other.getHP() + "hp.";
   }
@@ -65,6 +65,7 @@ public class Necromancer extends Adventurer{
   }
 
   public String specialAttack(ArrayList<Adventurer> party, int index){
+    index = 0;
     if(souls >= 2)
     {
     souls -= 2;
@@ -72,7 +73,7 @@ public class Necromancer extends Adventurer{
     int numtargets = party.size();
     while(index + 1 <= party.size())
     {
-    party.get(index).applyDamage(damageTotal/numtargets);
+    party.get(index).applyDamage((damageTotal/numtargets + getBuff()));
     return this + " sent a skeleton towards " + party.get(index).getName() + " to deal " + damageTotal/numtargets + " damage." + "\n" + specialAttack(party,index+1);
     }
   }

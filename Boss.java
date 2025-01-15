@@ -73,6 +73,7 @@ public class Boss extends Adventurer{
   }
 
   public String specialAttack(ArrayList<Adventurer> party, int index){
+    index = 0;
     // Will turn into AOE eventually. I'll get that figured out soon.
     if(flames >= 3)
     {

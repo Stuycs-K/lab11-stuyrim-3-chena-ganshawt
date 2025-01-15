@@ -94,8 +94,19 @@ public class Artificer extends Adventurer{
   //Takes special and turns it into damage buffs for friendly units.
   public String support(Adventurer other){
     if(getSpecial() > 1){
+      int buffAmt = 0;
+      if(getSpecial() >= 3)
+      {
+        buffAmt = 3;
+        setSpecial(getSpecial()-3);
+      }
+      else{
+        buffAmt = getSpecial();
+        setSpecial(getSpecial() - buffAmt);
+      }
       resetSearches();
-      return this.getName() + " used his scrap to sharpen his weapons, giving " + other.getName() + " a PLACEHOLDER damage buff";
+      other.setBuff(other.getBuff() + buffAmt );
+      return this.getName() + " used his scrap to sharpen his weapons, giving " + other.getName() + " a " + buffAmt + " attack damage buff";
     }
     else{
       return this.getName() + " seems not to have enough scrap to buff " + other.getName();

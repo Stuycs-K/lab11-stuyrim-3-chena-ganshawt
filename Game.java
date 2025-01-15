@@ -250,6 +250,7 @@ public class Game{
     Scanner in = new Scanner(System.in);
     boolean invalidTarget = true;
     int target = 0;
+
     //Draw the window border
 
     //You can add parameters to draw screen!
@@ -279,9 +280,9 @@ public class Game{
         Adventurer currentMember = party.get(i);
         if(input.startsWith("a"))
         {
-          if(target < 0)
+          if(target < 0 || target > enemies.size())
           {
-            target = (int) (Math.random()*2);
+            target = (int) (Math.random()*enemies.size());
           }
           Game.drawText(currentMember.attack(enemies.get(target)), row, 1);
 
@@ -291,9 +292,9 @@ public class Game{
         }
         else if(input.startsWith("sp"))
         {
-          if(target < 0)
+          if(target < 0 || target > enemies.size())
           {
-            target = (int) (Math.random()*3);
+            target = (int) (Math.random()*enemies.size());
           }
           Game.drawText(currentMember.specialAttack(enemies,target),row,1);
           row+=3;
@@ -302,11 +303,14 @@ public class Game{
         else if(input.startsWith("su"))
         {
 
-          if(target < 0)
+          if(target != -1)
           {
+            if(target < -1 || target > party.size())
+            {
+              target = (int) (Math.random()*party.size());
+            }
             Game.drawText(currentMember.support(party.get(target)),row,1);
             row+= 2;
-
           }
           else
           {
