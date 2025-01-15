@@ -48,6 +48,7 @@ public class Necromancer extends Adventurer{
     this.applyDamage(3);
     int damage = (int)((Math.random() * 3) + 3);
     other.applyDamage(damage);
+    restoreSpecial(1);
     return this.getName() + " sacrificed 3 health to deal " + damage + " damage to " + other.getName() + " leaving " + this.getName() + " with " + this.getHP() + " hp and " + other.getName() + " with " + other.getHP() + "hp.";
   }
 

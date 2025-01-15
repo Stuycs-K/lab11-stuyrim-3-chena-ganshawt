@@ -246,7 +246,10 @@ public class Game{
     int whichOpponent = 0;
     int turn = 0;
     String input = "";//blank to get into the main loop.
+    int row = 6;
     Scanner in = new Scanner(System.in);
+    boolean invalidTarget = true;
+    int target = 0;
     //Draw the window border
 
     //You can add parameters to draw screen!
@@ -255,31 +258,67 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-    System.out.println();
-    System.out.print(preprompt);
+
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
+      row = 6;
 
     if(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
     {
       for(int i = 0; i < party.size();i++)
       {
+        target = 0;
+        String prompter = "Enter command for "+party.get(whichPlayer)+": attack # / support # / special # / quit ";
+        drawText(prompter,30,1);
+        input = in.nextLine();
+        String[] inputArr = input.split("\s+"); // Splits array. \s+ just splits on all whitespace no matter the amount.
+        if(inputArr.length > 1)
+        {
+        target = Integer.parseInt(inputArr[1]) - 1;
+        }
 
+        Adventurer currentMember = party.get(i);
         if(input.startsWith("a"))
         {
+          if(target < 0)
+          {
+            target = (int) (Math.random()*2);
+          }
+          Game.drawText(currentMember.attack(enemies.get(target)), row, 1);
+
+
+          row+= 2;
 
         }
         else if(input.startsWith("sp"))
         {
+          if(target < 0)
+          {
+            target = (int) (Math.random()*3);
+          }
+          Game.drawText(currentMember.specialAttack(enemies,target),row,1);
+          row+=3;
 
         }
         else if(input.startsWith("su"))
         {
-          
+
+          if(target < 0)
+          {
+            Game.drawText(currentMember.support(party.get(target)),row,1);
+            row+= 2;
+
+          }
+          else
+          {
+            Game.drawText(currentMember.support(),row,1);
+            row+= 2;
+
+          }
         }
         else if((input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
         {
-          // Put quit behavior here.
+          input = "quit";
+          i+= 9207;
         }else{
           //Print try again
           i-= 1;}
@@ -302,7 +341,8 @@ public class Game{
 
     }
 
-      drawScreen(party,enemies);
+    drawScreen(party,enemies);
+
 
 
     }//end of main game loop
