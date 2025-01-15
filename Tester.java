@@ -34,6 +34,8 @@ public class Tester
     dragonTester.setSpecial(300);
     Game.drawText(dragonTester.specialAttack(testers,0),15,1);
     Game.drawText(necromancerTester.specialAttack(enemies,0),10,1);
+    Game.drawParty(testers,1);
+    Game.drawParty(enemies,26);
     Game.quit();
 /*
     //Accessor methods for the classes
