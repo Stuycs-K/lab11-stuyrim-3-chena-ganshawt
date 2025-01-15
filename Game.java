@@ -123,6 +123,8 @@ public class Game{
       int col = 1;
       for(int i = 0; i < party.size();i++)
       {
+
+
         drawText(party.get(i).getName(),row,col);
         drawText("HP: " + party.get(i).getHP(),row+1,col);
         drawText(party.get(i).getSpecialName() + ": " + party.get(i).getSpecial(),row+2,col);
@@ -141,7 +143,9 @@ public class Game{
 
 
   //Use this to create a colorized number string based on the % compared to the max value.
-  public static String colorByPercent(int hp, int maxHP){
+  public static String colorByPercent(Adventurer player){
+    int hp = player.getHP();
+    int maxHP = player.getmaxHP();
     String output = String.format("%2s", hp+"")+"/"+String.format("%2s", maxHP+"");
     //COLORIZE THE OUTPUT IF HIGH/LOW:
     if(hp / ((double)maxHP) <= 0.25){

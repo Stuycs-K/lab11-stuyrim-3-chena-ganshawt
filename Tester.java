@@ -19,8 +19,8 @@ public class Tester
     Necromancer necromancerTester = new Necromancer("Necromancer Test");
     Artificer artificerTester = new Artificer("Artificer Test");
     testers.add(paladinTester);
-    testers.add(necromancerTester);
-    testers.add(artificerTester);
+    //testers.add(necromancerTester);
+  //  testers.add(artificerTester);
     Game.drawParty(testers,1);
     ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
     Paladin paladinEnemy = new Paladin("Paladin Enemy");
