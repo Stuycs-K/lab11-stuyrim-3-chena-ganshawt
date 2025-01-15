@@ -64,13 +64,19 @@ public class Necromancer extends Adventurer{
   }
 
   public String specialAttack(ArrayList<Adventurer> party, int index){
+    if(souls >= 2)
+    {
+    souls -= 2;
     int damageTotal = 12;
     int numtargets = party.size();
-    while(index < party.size())
+    while(index + 1 <= party.size())
     {
     party.get(index).applyDamage(damageTotal/numtargets);
     return this + " sent a skeleton towards " + party.get(index).getName() + " to deal " + damageTotal/numtargets + " damage." + "\n" + specialAttack(party,index+1);
     }
+  }
+    if(souls < 2 && index < party.size())
+    {return "Not enough souls.";}
     return "";
   }
 

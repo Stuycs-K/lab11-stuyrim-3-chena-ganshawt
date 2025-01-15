@@ -8,17 +8,17 @@ public class Boss extends Adventurer{
   //Probably a dragon.
 
   public Boss(){
-    super("Dragonicus", 36);
+    this("Dragonicus", 36);
   }
 
   public Boss(int HP)
   {
-    super("Dragonicus",HP);
+    this("Dragonicus",HP);
   }
 
   public Boss(String name)
   {
-    super(name,36);
+    this(name,36);
   }
 
   public Boss(String name, int HP)
@@ -74,13 +74,19 @@ public class Boss extends Adventurer{
 
   public String specialAttack(ArrayList<Adventurer> party, int index){
     // Will turn into AOE eventually. I'll get that figured out soon.
+    if(flames >= 3)
+    {
+    flames -= 3;
     int damageTotal = 12;
     int numtargets = party.size();
-    while(index < party.size())
+    while(index + 1 <= party.size())
     {
     party.get(index).applyDamage(damageTotal/numtargets);
-    return this + " threw a fireball at " + party.get(index).getName() + " for " + damageTotal/numtargets + " damage." + "\n" + specialAttack(party,index+1);
+    return this + " threw a fireball at " + party.get(index).getName() + " to deal " + damageTotal/numtargets + " damage." + "\n" + specialAttack(party,index+1);
     }
+  }
+    if(flames < 2 && index < party.size())
+    {return "Not enough flames.";}
     return "";
   }
 

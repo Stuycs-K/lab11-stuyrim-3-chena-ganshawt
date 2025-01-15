@@ -19,8 +19,8 @@ public class Tester
     Necromancer necromancerTester = new Necromancer("Necromancer Test");
     Artificer artificerTester = new Artificer("Artificer Test");
     testers.add(paladinTester);
-    //testers.add(necromancerTester);
-  //  testers.add(artificerTester);
+    testers.add(necromancerTester);
+    testers.add(artificerTester);
     Game.drawParty(testers,1);
     ArrayList<Adventurer> enemies = new ArrayList<Adventurer>();
     Paladin paladinEnemy = new Paladin("Paladin Enemy");
@@ -32,6 +32,7 @@ public class Tester
     Game.drawParty(enemies,26);
     Boss dragonTester = new Boss("Dragon Test");
     dragonTester.setSpecial(300);
+    necromancerTester.setSpecial(300);
     Game.drawText(dragonTester.specialAttack(testers,0),15,1);
     Game.drawText(necromancerTester.specialAttack(enemies,0),10,1);
     Game.drawParty(testers,1);
