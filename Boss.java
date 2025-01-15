@@ -78,6 +78,7 @@ public class Boss extends Adventurer{
     int numtargets = party.size();
     while(index < party.size())
     {
+    party.get(index).applyDamage(damageTotal/numtargets);
     return this + " threw a fireball at " + party.get(index).getName() + " for " + damageTotal/numtargets + " damage." + "\n" + specialAttack(party,index+1);
     }
     return "";
