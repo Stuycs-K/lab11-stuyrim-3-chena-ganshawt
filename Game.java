@@ -377,9 +377,31 @@ public class Game{
           enemies.remove(i);
           i--;
         }
+        String[] skillArr = new String[]{"a","su", "sp"};
+        String skillUsed = skillArr[(int) Math.random() * 2 + 1];
+        if(skillUsed.equals("a"))
+        {
+          Game.drawText(enemies.get(i).attack(party.get((int) (Math.random()*party.size()) + 1)),row);
+          row+=2;
+        }
+        if(skillUsed.equals("sp"))
+        {
+          Game.drawText(enemies.get(i).specialAttack(party,party.get((int) (Math.random()*party.size()) + 1)),row);
+                    row+=3;
+        }
+        if(skillUsed.equals("su"))
+        {
+          if((int) Math.random() * 2)
+          {
+            Game.drawText(enemies.get(i).support(enemies.get((int) (Math.random()*enemies.size()) + 1)),row);
 
-
-
+          }
+          else
+          {
+            Game.drawText(enemies.get(i).support(),row);
+          }
+                    row+=2;
+        }
 
       }
 
