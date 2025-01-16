@@ -177,8 +177,6 @@ public class Game{
     drawBackground();
     Game.drawParty(party,1);
     //draw player party
-    Game.drawParty(party,1);
-
     //draw enemy party
     Game.drawParty(enemies,26);
 
@@ -350,8 +348,17 @@ public class Game{
         }else{
           //Print try again
           i-= 1;}
-
-
+          for(int n = 0; n < enemies.size();n++)
+          {
+          if(enemies.get(n).getHP() <= 0)
+          {
+            enemies.remove(n);
+            n--;
+          }
+        }
+          Game.drawParty(party,1);
+          //draw enemy party
+          Game.drawParty(enemies,26);
 
       }}
 
@@ -360,7 +367,7 @@ public class Game{
 
     }
 
-
+// -----THIS STARTS TO THE
     if((! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))))
     {
       for(int i = 0; i < enemies.size();i++)
@@ -393,11 +400,14 @@ public class Game{
 
 
     turncounter++;
+    if(!input.equals("quit"))
+    {
     input = "sentencethatnobodywouldtype";
+    }
     while(input.equals("sentencethatnobodywouldtype"))
     {
     drawText("                                                                                      ",30,1);
-    drawText("Enter any key to continue: ",30,1);  
+    drawText("Enter any key to continue: ",30,1);
     input = in.nextLine();
     }
     if(party.size() == 0 || enemies.size() == 0)
