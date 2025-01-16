@@ -4,6 +4,8 @@ public class Game{
   private static final int HEIGHT = 30;
   private static final int BORDER_COLOR = Text.BLACK;
   private static final int BORDER_BACKGROUND = Text.WHITE + Text.BACKGROUND;
+  private static String gameResult = "";
+  private static int turncount = 0;
 
   public static void main(String[] args) {
     run();
@@ -198,6 +200,8 @@ public class Game{
 
   public static void quit(){
     Text.reset();
+    drawText("You " + gameResult, 16, 40);
+    drawText("Game played for " + turncount + " turns.",17,40);
     Text.showCursor();
     Text.go(32,1);
   }
@@ -250,6 +254,7 @@ public class Game{
     Scanner in = new Scanner(System.in);
     boolean invalidTarget = true;
     int target = 0;
+    int turncounter = 0;
 
     //Draw the window border
 
@@ -262,6 +267,18 @@ public class Game{
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       row = 6;
+      if(party.size() == 0 || enemies.size() == 0)
+      {
+        if(party.size() == 0)
+        {
+          gameResult = "lose";
+        }
+        else
+        {
+          gameResult = "win";
+        }
+        input = "quit";
+      }
 
     if(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
     {
@@ -274,7 +291,7 @@ public class Game{
         }
         else{
         target = 0;
-        String prompter = "Enter command for "+party.get(whichPlayer)+": attack # / support # / special # / quit ";
+        String prompter = "Enter command for "+party.get(i).getName()+": attack # / support # / special # / quit ";
         drawText(prompter,30,1);
         input = in.nextLine();
         String[] inputArr = input.split("\s+"); // Splits array. \s+ just splits on all whitespace no matter the amount.
@@ -328,6 +345,7 @@ public class Game{
         else if((input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
         {
           input = "quit";
+          gameResult = "quit";
           i+= 9207;
         }else{
           //Print try again
@@ -361,8 +379,38 @@ public class Game{
 
       if(party.size() == 0 || enemies.size() == 0)
       {
+        if(party.size() == 0)
+        {
+          gameResult = "lose";
+        }
+        else
+        {
+          gameResult = "win";
+        }
         input = "quit";
       }
+    }
+
+
+    turncounter++;
+    input = "sentencethatnobodywouldtype";
+    while(input.equals("sentencethatnobodywouldtype"))
+    {
+    drawText("                                                                                      ",30,1);
+    drawText("Enter any key to continue: ",30,1);  
+    input = in.nextLine();
+    }
+    if(party.size() == 0 || enemies.size() == 0)
+    {
+      if(party.size() == 0)
+      {
+        gameResult = "lose";
+      }
+      else
+      {
+        gameResult = "win";
+      }
+      input = "quit";
     }
 
     drawScreen(party,enemies);
@@ -371,7 +419,7 @@ public class Game{
 
     }//end of main game loop
 
-
+    turncount = turncounter;
     //After quit reset things:
     quit();
   }

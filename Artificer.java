@@ -73,7 +73,7 @@ public class Artificer extends Adventurer{
     resetSearches();
     //Added adjectives to describe the swing.
     String[] possibleAdjectives = {"feebly", "weakly", "forcefully", "with all of his might"};
-    return this.getName() + "swung his hammer " + possibleAdjectives[damage - 1] + " at " + other.getName() + "dealing " + damage + " damage, leaving " + other.getName() + " with only " + other.getHP() + "HP left";
+    return this.getName() + " swung his hammer " + possibleAdjectives[damage - 1] + " at " + other.getName() + "dealing " + damage + " damage, leaving " + other.getName() + " with only " + other.getHP() + "HP left";
   }
 
   //Searches for special and increases the special counter.
