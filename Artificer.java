@@ -73,7 +73,7 @@ public class Artificer extends Adventurer{
     resetSearches();
     //Added adjectives to describe the swing.
     String[] possibleAdjectives = {"feebly", "weakly", "forcefully", "with all of his might"};
-    return this.getName() + " swung his hammer " + possibleAdjectives[damage - 1] + " at " + other.getName() + "dealing " + damage + " damage, leaving " + other.getName() + " with only " + other.getHP() + "HP left";
+    return this.getName() + " swung his hammer " + possibleAdjectives[damage - 1] + " at " + other.getName() + " dealing " + damage + " damage, leaving " + other.getName() + " with only " + other.getHP() + "HP left";
   }
 
   //Searches for special and increases the special counter.
@@ -115,14 +115,19 @@ public class Artificer extends Adventurer{
 
   //Deals more damage the more scrap(the special resource) you have, using all the special up in the process.
   public String specialAttack(ArrayList<Adventurer> targets, int index){
-    Adventurer other = targets.get(index);
-    int damage = 0;
-    for(int i = 0; i < scrap; i++){
-      damage += (Math.random() * 3) + 1;
+    if(scrap == 0){
+      return this.getName() + " doesn't have any scrap to fire. Instead, he " + attack(targets.get(index));
     }
-    other.applyDamage(damage);
-    resetSearches();
-    return this.getName() + "fired all of his scrap at " + other.getName() + "dealing " + damage + " damage, leaving " + other.getName() + " with only " + other.getHP() + "HP left";
+    else{
+      Adventurer other = targets.get(index);
+      int damage = 0;
+      for(int i = 0; i < scrap; i++){
+        damage += (Math.random() * 3) + 1;
+      }
+      other.applyDamage(damage);
+      resetSearches();
+      return this.getName() + "fired all of his scrap at " + other.getName() + "dealing " + damage + " damage, leaving " + other.getName() + " with only " + other.getHP() + "HP left";
+    }
   }
 
 
