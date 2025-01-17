@@ -59,9 +59,14 @@ public class Necromancer extends Adventurer{
   }
 
   public String support(Adventurer other){
-    other.applyDamage(2);
-    other.restoreSpecial(2);
-    return other.getName() + " had 2 hp turned into 2 " + other.getSpecialName() + ". They now have " + other.getHP() + " health left.";
+    if(other.getHP() < 2){
+      return other.getName() + " didn't have enough hp to transmutate into special";
+    }
+    else{
+      other.applyDamage(2);
+      other.restoreSpecial(2);
+      return other.getName() + " had 2 hp turned into 2 " + other.getSpecialName() + ". They now have " + other.getHP() + " health left.";
+    }
   }
 
   public String support(){
