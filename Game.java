@@ -381,12 +381,12 @@ public class Game{
         String skillUsed = skillArr[(int) (Math.random() * 2)];
         if(skillUsed.equals("a"))
         {
-          Game.drawText(enemies.get(i).attack(party.get((int) (Math.random()*party.size())),row,1));
+          Game.drawText(enemies.get(i).attack(party.get((int) (Math.random()*party.size()))),row,1);
           row+=2;
         }
         if(skillUsed.equals("sp"))
         {
-          Game.drawText(enemies.get(i).specialAttack(party,(int) (Math.random()*party.size()),row,1));
+          Game.drawText(enemies.get(i).specialAttack(party,(int) (Math.random()*party.size())),row,1);
                     row+=3;
         }
         if(skillUsed.equals("su"))
