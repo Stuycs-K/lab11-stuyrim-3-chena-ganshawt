@@ -329,7 +329,7 @@ public class Game{
 
         else if (!input.equals("quit")){
         target = 0;
-        String prompter = "Type command for "+party.get(i).getName()+": attack # / support # / special # / quit: ";
+        String prompter = "Type skill for "+party.get(i).getName()+": attack # / support # / special # / quit: ";
         drawText("                                                                                ",29,1);
         drawText(prompter,29,1);
         input = in.nextLine();
