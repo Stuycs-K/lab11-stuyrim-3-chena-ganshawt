@@ -44,23 +44,28 @@ public class Necromancer extends Adventurer{
     }
   }
 
-  public String attack(Adventurer other){
-    int hpToDMG = 3;
-    if(this.getHP() - hpToDMG <= 0)
-    {
-      hpToDMG*= -1;
-    }
+  private String weakestAttack(Adventurer other){
+    other.applyDamage(1);
+    return this.getName() + " weakly attacked " + other.getName() + " dealing 1 damage";
+  }
 
-    this.applyDamage(hpToDMG);
-    int damage = (int)((Math.random() * 3) + hpToDMG);
-    other.applyDamage(damage + getBuff());
-    restoreSpecial(1);
-    return this.getName() + " sacrificed 3 health to deal " + damage + " damage to " + other.getName() + " leaving " + this.getName() + " with " + this.getHP() + " hp and " + other.getName() + " with " + other.getHP() + "hp.";
+  public String attack(Adventurer other){
+    if(this.getHP() < 3){
+      return this.getName() + " didn't have enough health to attack. Instead, " + this.weakestAttack(other);
+    }
+    else{
+      int hpToDMG = 3;
+      this.applyDamage(hpToDMG);
+      int damage = (int)((Math.random() * 3) + hpToDMG);
+      other.applyDamage(damage + getBuff());
+      restoreSpecial(1);
+      return this.getName() + " sacrificed 3 health to deal " + damage + " damage to " + other.getName() + " leaving " + this.getName() + " with " + this.getHP() + " hp and " + other.getName() + " with " + other.getHP() + "hp.";
+    }
   }
 
   public String support(Adventurer other){
     if(other.getHP() < 2){
-      return other.getName() + " didn't have enough hp to transmutate into special";
+      return other.getName() + " didn't have enough hp to transmutate into special.";
     }
     else{
       other.applyDamage(2);
@@ -70,9 +75,14 @@ public class Necromancer extends Adventurer{
   }
 
   public String support(){
-    this.applyDamage(2);
-    this.restoreSpecial(2);
-    return this.getName() + " had 2 hp turned into 2 " + this.getSpecialName() + ". They now have " + this.getHP() + " health left.";
+    if(this.getHP() < 2){
+      return this.getName() + " didn't have enough HP to transmutate into special.";
+    }
+    else{
+      this.applyDamage(2);
+      this.restoreSpecial(2);
+      return this.getName() + " had 2 hp turned into 2 " + this.getSpecialName() + ". They now have " + this.getHP() + " health left.";
+    }
   }
 
   public String specialAttack(ArrayList<Adventurer> party, int index){
@@ -89,7 +99,7 @@ public class Necromancer extends Adventurer{
     }
   }
     if(souls < 2 && index < party.size())
-    {return "Not enough souls.";}
+    {return "Not enough souls. Instead, " + this.attack(party.get(index));}
     return "";
   }
 
