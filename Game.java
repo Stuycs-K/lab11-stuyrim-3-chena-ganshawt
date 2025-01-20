@@ -125,20 +125,33 @@ public class Game{
 
       int row = startRow;
       int col = 1;
-      for(int i = 0; i < party.size();i++)
+      for(int i = 0; i < 3;i++)
       {
-
-
+        if(i < party.size())
+        {
+        drawText("                        ",row,col);
         drawText(party.get(i).getName(),row,col);
+        drawText("                        ",row+1,col);
         drawText("HP: " + colorByPercent(party.get(i)),row+1,col);
+        drawText("                        ",row+2,col);
         drawText(party.get(i).getSpecialName() + ": " + party.get(i).getSpecial(),row+2,col);
+        drawText("                        ",row+3,col);
         drawText("Atk Buff: " + party.get(i).getBuff(),row+3,col);
+      }
+      else
+      {
+        drawText("                        ",row,col);
+        drawText("                        ",row+1,col);
+        drawText("                        ",row+2,col);
+        drawText("                        ",row+3,col);
+      }
         if(i == 0)
         {
         col+= 25;
         }
         else
         {col+=30;}
+
 
       }
 
@@ -316,7 +329,7 @@ public class Game{
 
         else if (!input.equals("quit")){
         target = 0;
-        String prompter = "Enter command for "+party.get(i).getName()+": attack # / support # / special # / quit: ";
+        String prompter = "Type command for "+party.get(i).getName()+": attack # / support # / special # / quit: ";
         drawText("                                                                                ",29,1);
         drawText(prompter,29,1);
         input = in.nextLine();
