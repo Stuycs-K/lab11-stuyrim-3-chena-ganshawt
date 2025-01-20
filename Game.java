@@ -122,7 +122,7 @@ public class Game{
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
 
-      
+
       int row = startRow;
       int col = 1;
       for(int i = 0; i < party.size();i++)
@@ -317,6 +317,7 @@ public class Game{
         else if (!input.equals("quit")){
         target = 0;
         String prompter = "Enter command for "+party.get(i).getName()+": attack # / support # / special # / quit ";
+        drawText("                                                                              ",29,1);
         drawText(prompter,29,1);
         input = in.nextLine();
         String[] inputArr = input.split("\s+"); // Splits array. \s+ just splits on all whitespace no matter the amount.
