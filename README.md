@@ -52,5 +52,4 @@ Make a clear list of features that work/dont work
 - Special Resource: Flames
 
 
-## Issues
-- On Windows, game text will scroll down, misalligning the whole game. This bug appears seemingly at random and is not present on Linux. :beetle:
+
