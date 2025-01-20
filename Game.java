@@ -280,20 +280,30 @@ public class Game{
 
     if(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
     {
-      if(party.size() == 0 || enemies.size() == 0)
-      {
-        if(party.size() == 0)
-        {
-          gameResult = "lose";
-        }
-        else
-        {
-          gameResult = "win";
-        }
-        input = "quit";
-      }
+
       for(int i = 0; i < party.size();i++)
       {
+
+        for(int n = 0; n < enemies.size();n++)
+        {
+        if(enemies.get(n).getHP() <= 0)
+        {
+          enemies.remove(n);
+          n--;
+        }
+      }
+        if(party.size() == 0 || enemies.size() == 0)
+        {
+          if(party.size() == 0)
+          {
+            gameResult = "lose";
+          }
+          else
+          {
+            gameResult = "win";
+          }
+          input = "quit";
+        }
         if(party.get(i).getHP() <= 0)
         {
           party.remove(i);
@@ -360,19 +370,13 @@ public class Game{
         }else{
           //Print try again
           i-= 1;}
-          for(int n = 0; n < enemies.size();n++)
-          {
-          if(enemies.get(n).getHP() <= 0)
-          {
-            enemies.remove(n);
-            n--;
-          }
+
         }
           Game.drawParty(party,1);
           //draw enemy party
           Game.drawParty(enemies,26);
 
-      }}
+      }
 
 
 
@@ -389,6 +393,7 @@ public class Game{
           enemies.remove(i);
           i--;
         }
+        else{
         String[] skillArr = new String[]{"a","su", "sp"};
         String skillUsed = skillArr[(int) (Math.random() * 2)];
         if(skillUsed.equals("a"))
@@ -413,7 +418,7 @@ public class Game{
             Game.drawText(enemies.get(i).support(),row,1);
           }
                     row+=2;
-        }
+        }}
 
       }
 
