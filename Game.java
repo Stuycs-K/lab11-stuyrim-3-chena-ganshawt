@@ -280,6 +280,18 @@ public class Game{
 
     if(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")))
     {
+      if(party.size() == 0 || enemies.size() == 0)
+      {
+        if(party.size() == 0)
+        {
+          gameResult = "lose";
+        }
+        else
+        {
+          gameResult = "win";
+        }
+        input = "quit";
+      }
       for(int i = 0; i < party.size();i++)
       {
         if(party.get(i).getHP() <= 0)
