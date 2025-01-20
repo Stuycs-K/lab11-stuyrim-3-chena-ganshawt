@@ -18,30 +18,39 @@ Make a clear list of features that work/dont work
 
 ## Adventurer Subclasses
 
-### Paladin (from CodeWarrior) \[with slight changes]
+### Paladin (from CodeWarrior) \[with slight changes] :white_check_mark:
 
-- Attack: Strike - {name} struck {opponent}! - mana increases
-- Support (self) \- Heal, costs mana.
-- Support \- Heal (more effective on teammates than yourself), costs mana. 
-- Special \- Revive (note: make expensive)
+- Attack: Strike - {name} struck {opponent}! - mana increases :white_check_mark:
+- Support (self) \- Heal, costs mana. :white_check_mark:
+- Support \- Restore teammate special :white_check_mark:
+- Special \- Revive (note: make expensive) :white_check_mark:
 - Special Resource: Mana
 
 
-### Artificer
+### Artificer :white_check_mark:
 
-- Attack: \- Hits you with a hammer, scrap is unchanged
-- Support (self) \- Search for Scrap (increases special count) \[count decreases on consecutive uses]
-- Support: \- Attack Buff but costs scrap.
-- Special \- Scrap Cannon (uses all scrap for big attack)
+- Attack: \- Hits you with a hammer, scrap is unchanged :white_check_mark:
+- Support (self) \- Search for Scrap (increases special count) \[count decreases on consecutive uses] :white_check_mark:
+- Support: \- Attack Buff but costs scrap. :white_check_mark:
+- Special \- Scrap Cannon (uses all scrap for big attack) :white_check_mark:
 - Special Resource: Scrap
 
-### Necromancer
+### Necromancer :white_check_mark:
 
-- Attack \- Damage siphons amount of HP from the user, deals extra damage based on the amount
-- Support (self) \- HP turns to special
-- Support \- HP of person used on turns to special for them
-- Special \- Skeletal Army: AOE (splits attack damage by number of enemies)
+- Attack \- Damage siphons amount of HP from the user, deals extra damage based on the amount :white_check_mark:
+- Support (self) \- HP turns to special :white_check_mark:
+- Support \- HP of person used on turns to special for them :white_check_mark:
+- Special \- Skeletal Army: AOE (splits attack damage by number of enemies) :white_check_mark:
 - Special Resource: Souls
 
-replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
+### Dragon (Boss) :white_check_mark:
 
+- Attack \- Deals generic damage to opponent :white_check_mark:
+- Support (self) \- Heals for 5 health :white_check_mark:
+- Support \- Lowers attack buff of adventurer it is used on :white_check_mark:
+- Special \- Firestorm: AOE (splits attack damage by number of enemies) :white_check_mark:
+- Special Resource: Flames
+
+
+## Issues
+- On Windows, game text will scroll down, misalligning the whole game. This bug appears seemingly at random and is not present on Linux. :beetle:
