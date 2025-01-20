@@ -22,7 +22,7 @@ public class Game{
     {
       System.out.print(borderChar);
     }
-    System.out.print("\u001b[25;1f");
+    System.out.print("\u001b[24;1f");
     for(int i = 1; i < 81; i++)
     {
       System.out.print(borderChar);
@@ -73,7 +73,7 @@ public class Game{
   public static void TextBox(int row, int col, int width, int height, String text){
 
     String words = "";
-    System.out.println(text.length());
+  //  System.out.println(text.length());
     for(int i = 0; i < text.length();i++)
     {
       if((words + text.charAt(i)).length() > width)
@@ -121,6 +121,8 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
+
+      
       int row = startRow;
       int col = 1;
       for(int i = 0; i < party.size();i++)
@@ -178,7 +180,7 @@ public class Game{
     Game.drawParty(party,1);
     //draw player party
     //draw enemy party
-    Game.drawParty(enemies,26);
+    Game.drawParty(enemies,25);
 
     //Move cursor to current input
     //I have no idea where the current input will go.
@@ -290,9 +292,16 @@ public class Game{
         {
           enemies.remove(n);
           n--;
+          Game.drawParty(enemies,25);
         }
-      }
-        if(party.size() == 0 || enemies.size() == 0)
+        }
+        if(party.get(i).getHP() <= 0)
+        {
+          party.remove(i);
+          i--;
+          Game.drawParty(party,1);
+        }
+        if(party.size() == 0 || enemies.size() <= 0)
         {
           if(party.size() == 0)
           {
@@ -304,15 +313,11 @@ public class Game{
           }
           input = "quit";
         }
-        if(party.get(i).getHP() <= 0)
-        {
-          party.remove(i);
-          i--;
-        }
-        else{
+
+        else if (!input.equals("quit")){
         target = 0;
         String prompter = "Enter command for "+party.get(i).getName()+": attack # / support # / special # / quit ";
-        drawText(prompter,30,1);
+        drawText(prompter,29,1);
         input = in.nextLine();
         String[] inputArr = input.split("\s+"); // Splits array. \s+ just splits on all whitespace no matter the amount.
         if(inputArr.length > 1)
@@ -327,7 +332,7 @@ public class Game{
           {
             target = (int) (Math.random()*enemies.size());
           }
-          Game.drawText(currentMember.attack(enemies.get(target)), row, 1);
+          Game.TextBox(row, 1, 80, 2, currentMember.attack(enemies.get(target)));
 
 
           row+= 2;
@@ -339,7 +344,7 @@ public class Game{
           {
             target = (int) (Math.random()*enemies.size());
           }
-          Game.drawText(currentMember.specialAttack(enemies,target),row,1);
+          Game.TextBox(row,1, 80, 3,currentMember.specialAttack(enemies,target));
           row+=3;
 
         }
@@ -352,12 +357,12 @@ public class Game{
             {
               target = (int) (Math.random()*party.size());
             }
-            Game.drawText(currentMember.support(party.get(target)),row,1);
+            Game.TextBox(row,1,80,2,currentMember.support(party.get(target)));
             row+= 2;
           }
           else
           {
-            Game.drawText(currentMember.support(),row,1);
+            Game.TextBox(row,1,80,2,currentMember.support());
             row+= 2;
 
           }
@@ -374,7 +379,7 @@ public class Game{
         }
           Game.drawParty(party,1);
           //draw enemy party
-          Game.drawParty(enemies,26);
+          Game.drawParty(enemies,25);
 
       }
 
@@ -398,28 +403,30 @@ public class Game{
         String skillUsed = skillArr[(int) (Math.random() * 2)];
         if(skillUsed.equals("a"))
         {
-          Game.drawText(enemies.get(i).attack(party.get((int) (Math.random()*party.size()))),row,1);
+          Game.TextBox(row,1,80,2,enemies.get(i).attack(party.get((int) (Math.random()*party.size()))));
           row+=2;
         }
         if(skillUsed.equals("sp"))
         {
-          Game.drawText(enemies.get(i).specialAttack(party,(int) (Math.random()*party.size())),row,1);
+          Game.TextBox(row,1,80,3,enemies.get(i).specialAttack(party,(int) (Math.random()*party.size())));
                     row+=3;
         }
         if(skillUsed.equals("su"))
         {
           if((int) Math.random() * 2 == 1)
           {
-            Game.drawText(enemies.get(i).support(enemies.get((int) (Math.random()*enemies.size()))),row,1);
+            Game.TextBox(row,1,80,2,enemies.get(i).support(enemies.get((int) (Math.random()*enemies.size()))));
 
           }
           else
           {
-            Game.drawText(enemies.get(i).support(),row,1);
+            Game.TextBox(row,1,80,2,enemies.get(i).support());
           }
                     row+=2;
         }}
-
+        Game.drawParty(party,1);
+        //draw enemy party
+        Game.drawParty(enemies,25);
       }
 
 
@@ -445,8 +452,8 @@ public class Game{
     }
     while(input.equals("sentencethatnobodywouldtype"))
     {
-    drawText("                                                                                      ",30,1);
-    drawText("Enter any key to continue: ",30,1);
+    drawText("                                                                                      ",29,1);
+    drawText("Enter any key to continue: ",29,1);
     input = in.nextLine();
     }
     if(party.size() == 0 || enemies.size() == 0)
@@ -462,9 +469,8 @@ public class Game{
       input = "quit";
     }
 
+
     drawScreen(party,enemies);
-
-
 
     }//end of main game loop
 
