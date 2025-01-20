@@ -213,8 +213,8 @@ public class Game{
 
   public static void quit(){
     Text.reset();
-    drawText("You " + gameResult, 16, 40);
-    drawText("Game played for " + turncount + " turns.",17,40);
+    drawText("You " + gameResult, 14, 37);
+    drawText("Game played for " + turncount + " turns.",15,28);
     Text.showCursor();
     Text.go(32,1);
   }
