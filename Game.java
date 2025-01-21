@@ -16,34 +16,48 @@ public class Game{
   public static void drawBackground(){
     System.out.println("\u001b[2J");
     String borderChar = " ";
+    String horizontalChar = "\u2500";
+    String horizontalCharSplitUp = "\u2534";
+    String horizontalCharSplitDown = "\u252C";
+    String verticalChar = "\u2502";
     System.out.print("\u001b[5;1f");
-    System.out.print("\u001b[41m");
+    //System.out.print("\u001b[41m");
     for(int i = 1; i < 81; i++)
     {
-      System.out.print(borderChar);
+      if(i == 25 || i == 55){
+        System.out.print(horizontalCharSplitUp);
+      }
+      else{
+        System.out.print(horizontalChar);
+      }
     }
     System.out.print("\u001b[24;1f");
     for(int i = 1; i < 81; i++)
     {
-      System.out.print(borderChar);
+      if(i == 25 || i == 55){
+        System.out.print(horizontalCharSplitDown);
+      }
+      else{
+        System.out.print(horizontalChar);
+      }
     }
     //Vertical
 
     for(int i = 1; i < 5;i++)
     {
     System.out.print("\u001b[" + i + ";25f");
-    System.out.println(borderChar);
+    System.out.println(verticalChar);
     System.out.print("\u001b[" + i + ";55f");
-    System.out.println(borderChar);
+    System.out.println(verticalChar);
 
     }
 
     for(int i = 1; i < 6;i++)
     {
     System.out.print("\u001b[" + (i+24) + ";25f");
-    System.out.print(borderChar);
+    System.out.print(verticalChar);
     System.out.print("\u001b[" + (i+24) + ";55f");
-    System.out.print(borderChar);
+    System.out.print(verticalChar);
     }
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
